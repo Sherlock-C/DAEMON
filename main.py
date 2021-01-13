@@ -1,5 +1,5 @@
 import sys
-
+import torch
 from etalon.data_utils import *
 from etalon.options import Options
 from etalon.model_lstm_gru import *
