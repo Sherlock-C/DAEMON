@@ -7,7 +7,7 @@ ETALON is a robust time series anomaly detection model which uses two discrimina
 
 * Python 3.6
 * Numpy (1.15.4)
-* Pandas (0.23.4)
+* xlrd (1.2.0) # For data preprocess
 * Pytorch (1.0.0)
 * Scikit-learn (0.20.2)
 
