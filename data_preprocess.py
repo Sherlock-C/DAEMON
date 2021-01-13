@@ -1,7 +1,6 @@
 import ast
 import csv
 import os
-import sys
 from pickle import dump
 import xlrd
 import numpy as np
