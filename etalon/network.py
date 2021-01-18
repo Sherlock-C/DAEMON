@@ -1,5 +1,4 @@
 import os, pickle
-import numpy as np
 import torch
 import torch.nn as nn
 
@@ -115,7 +114,7 @@ class Decoder(nn.Module):
         return output
 
 
-class DAEMON_MODEL(object):
+class ETALON_MODEL(object):
     def __init__(self, opt):
         self.G = None
         self.D_rec = None
