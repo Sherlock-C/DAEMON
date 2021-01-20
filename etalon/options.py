@@ -59,7 +59,6 @@ class Options():
         """
 
         self.opt = self.parser.parse_args()#
-        # self.opt = self.parser.parse_known_args()[0]#
 
         str_ids = self.opt.gpu_ids.split(',')
         self.opt.gpu_ids = []
