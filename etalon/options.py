@@ -31,7 +31,7 @@ class Options():
         self.parser.add_argument('--device', type=str, default='gpu', help='Device: gpu | cpu')
         self.parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0. use -1 for CPU')
         self.parser.add_argument('--ngpu', type=int, default=1, help='number of GPUs to use')
-        self.parser.add_argument('--model', type=str, default='DAEMON', help='detection model')
+        self.parser.add_argument('--model', type=str, default='ETALON', help='detection model')
         self.parser.add_argument('--outf', default='./output', help='output folder')
 
         ##
