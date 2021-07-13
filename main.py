@@ -1,9 +1,9 @@
 import sys
 import torch
 import numpy as np
-from etalon.data_utils import *
-from etalon.options import Options
-from etalon.model import *
+from daemon.data_utils import *
+from daemon.options import Options
+from daemon.model import *
 from torch.utils.data import DataLoader
 import os
 
