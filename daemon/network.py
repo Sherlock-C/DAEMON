@@ -114,7 +114,7 @@ class Decoder(nn.Module):
         return output
 
 
-class ETALON_MODEL(object):
+class DAEMON_MODEL(object):
     def __init__(self, opt):
         self.G = None
         self.D_rec = None
