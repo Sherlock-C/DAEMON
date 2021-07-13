@@ -105,7 +105,7 @@ def anomaly_detection(data_type):
 
             test_data = DataLoader(dataset=samples_test_data, batch_size=opt.test_batchsize)
 
-            model = ETALON(opt, train_data, val_data, test_data, test_label, device)
+            model = DAEMON(opt, train_data, val_data, test_data, test_label, device)
 
             train_time, epoch_time = model.train()
 
