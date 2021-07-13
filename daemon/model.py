@@ -96,11 +96,11 @@ class Generator(nn.Module):
         return output, latent_z, mu, log_var
 
 
-class ETALON(ETALON_MODEL):
+class DAEMON(DAEMON_MODEL):
 
 
     def __init__(self, opt, train_dataloader, val_dataloader, test_data, label, device):
-        super(ETALON, self).__init__(opt)
+        super(DAEMON, self).__init__(opt)
 
         self.early_stopping = EarlyStopping(opt, patience=opt.patience, verbose=False)
 
