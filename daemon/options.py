@@ -3,18 +3,11 @@ import os
 import torch
 
 class Options():
-    """Options class
-    Returns:
-        [argparse]: argparse containing train and test options
-    """
-
+   
     def __init__(self):
-        ##
-        #
+       
         self.parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-        ##
-        # Base
         self.parser.add_argument('--seed', default=12345, help='random seed')
         self.parser.add_argument('--dataset', default='SMD', help='dataset')
         self.parser.add_argument('--filename', default='machine-1-1.txt', help='dataset name')
@@ -55,10 +48,8 @@ class Options():
         self.opt = None
 
     def parse(self):
-        """ Parse Arguments.
-        """
-
-        self.opt = self.parser.parse_args()#
+       
+        self.opt = self.parser.parse_args()
 
         str_ids = self.opt.gpu_ids.split(',')
         self.opt.gpu_ids = []
@@ -73,12 +64,6 @@ class Options():
 
         args = vars(self.opt)
 
-        # print('------------ Options -------------')
-        # for k, v in sorted(args.items()):
-        #     print('%s: %s' % (str(k), str(v)))
-        # print('-------------- End ----------------')
-
-        # save to the disk
         self.opt.name = "%s/%s" % (self.opt.model, self.opt.dataset)
         expr_dir = os.path.join(self.opt.outf, self.opt.name, 'train')
         test_dir = os.path.join(self.opt.outf, self.opt.name, 'test')
