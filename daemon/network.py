@@ -5,11 +5,7 @@ import torch.nn as nn
 
 
 def weights_init(mod):
-    """
-    Custom weights initialization called on netG, netD and netE
-    :param m:
-    :return:
-    """
+   
     classname = mod.__class__.__name__
 
     if classname.find('Conv') != -1:
@@ -68,7 +64,6 @@ class Encoder(nn.Module):
         return mu, log_var
 
 
-##
 
 
 class Decoder(nn.Module):
