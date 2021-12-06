@@ -25,31 +25,31 @@ class Encoder(nn.Module):
         self.ngpu = ngpu
         self.softplus = nn.Softplus()
         self.main = nn.Sequential(
-            # input is dim x 128
+           
             nn.Conv1d(opt.dim, opt.ndf, 4, 2, 1),
             nn.BatchNorm1d(opt.ndf),
             nn.LeakyReLU(0.2, inplace=True),
-            # state size. (ndf) x 64
+           
 
             nn.Conv1d(opt.ndf, opt.ndf * 2, 4, 2, 1),
             nn.BatchNorm1d(opt.ndf * 2),
             nn.LeakyReLU(0.2, inplace=True),
-            # state size. (ndf*2) x 32
+           
 
             nn.Conv1d(opt.ndf * 2, opt.ndf * 4, 4, 2, 1),
             nn.BatchNorm1d(opt.ndf * 4),
             nn.LeakyReLU(0.2, inplace=True),
-            # state size. (ndf*4) x 16
+           
 
             nn.Conv1d(opt.ndf * 4, opt.ndf * 8, 4, 2, 1),
             nn.BatchNorm1d(opt.ndf * 8),
             nn.LeakyReLU(0.2, inplace=True),
-            # state size. (ndf*8) x 8
+           
 
             nn.Conv1d(opt.ndf * 8, opt.ndf * 16, 4, 2, 1),
             nn.BatchNorm1d(opt.ndf * 16),
             nn.LeakyReLU(0.2, inplace=True),
-            # state size. (ndf*16) x 4
+          
         )
 
         self.mu = nn.Conv1d(opt.ndf*16, out_z, 4, 1, 0)
@@ -71,36 +71,35 @@ class Decoder(nn.Module):
         super(Decoder, self).__init__()
         self.ngpu = ngpu
         self.main = nn.Sequential(
-            # input is Z, going into a convolution
+            
             nn.ConvTranspose1d(opt.nz, opt.ngf * 16, 4, 1, 0),
             nn.BatchNorm1d(opt.ngf * 16),
             nn.ReLU(True),
-            # state size. (ngf*16) x 4
+           
 
             nn.ConvTranspose1d(opt.ngf * 16, opt.ngf * 8, 4, 2, 1),
             nn.BatchNorm1d(opt.ngf * 8),
             nn.ReLU(True),
-            # state size. (ngf*8) x 8
+           
 
             nn.ConvTranspose1d(opt.ngf * 8, opt.ngf * 4, 4, 2, 1),
             nn.BatchNorm1d(opt.ngf * 4),
             nn.ReLU(True),
-            # state size. (ngf*4) x 16
+           
 
             nn.ConvTranspose1d(opt.ngf * 4, opt.ngf * 2, 4, 2, 1),
             nn.BatchNorm1d(opt.ngf * 2),
             nn.ReLU(True),
-            # state size. (ngf*2) x 32
+            
 
             nn.ConvTranspose1d(opt.ngf * 2, opt.ngf, 4, 2, 1),
             nn.BatchNorm1d(opt.ngf),
             nn.ReLU(True),
-            # state size. (ngf) x 64
+            
 
             nn.ConvTranspose1d(opt.ngf, opt.dim, 4, 2, 1),
             nn.Sigmoid()
-            # state size. (dim) x 128
-
+           
         )
 
     def forward(self, input):
