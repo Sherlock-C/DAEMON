@@ -5,16 +5,6 @@ from sklearn.preprocessing import MinMaxScaler
 
 
 def average_filter(values, n=3):
-    """
-    Calculate the sliding window average for the give time series.
-    Mathematically, res[i] = sum_{j=i-t+1}^{i} values[j] / t, where t = min(n, i+1)
-    :param values: list.
-        a list of float numbers
-    :param n: int, default 3.
-        window size.
-    :return res: list.
-        a list of value after the average_filter process.
-    """
 
     if n >= len(values):
         n = len(values)
@@ -29,14 +19,7 @@ def average_filter(values, n=3):
     return res
 
 def spectral_residual_transform(values):
-    """
-    This method transform a time series into spectral residual series
-    :param values: list.
-        a list of float values.
-    :return: mag: list.
-        a list of float values as the spectral residual values
-    """
-
+   
     EPS = 1e-8
 
     trans = np.fft.fft(values)
@@ -60,6 +43,7 @@ def spectral_residual_transform(values):
 
 
 def proprocess(df):
+    
     df = np.asarray(df, dtype=np.float32)
 
     if len(df.shape) == 1:
