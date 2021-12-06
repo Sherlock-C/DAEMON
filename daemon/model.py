@@ -225,8 +225,8 @@ class DAEMON(DAEMON_MODEL):
             self.train_batchsize = data.size(0)
             epoch_iter += 1
 
-            self.input = data.permute([0,2,1]).float().to(self.device)#这里将原始input转换成1D CNN要求的格式：batchsize，dimension，length
-            self.p_z = torch.randn(self.input.size(0), 1, self.opt.nz).to(self.device)#从高斯分布中采样隐变量
+            self.input = data.permute([0,2,1]).float().to(self.device)
+            self.p_z = torch.randn(self.input.size(0), 1, self.opt.nz).to(self.device)
 
 
             self.optimize()
@@ -311,8 +311,8 @@ class DAEMON(DAEMON_MODEL):
         _, self.feat_lat_real = self.D_lat(self.p_z)
 
         self.loss_g_rs = self.l1loss(self.out_g_fake, self.input)
-        self.loss_g_rec = self.mse_criterion(self.feat_rec_fake, self.feat_rec_real)  # loss for feature matching
-        self.loss_g_lat = self.mse_criterion(self.feat_lat_fake, self.feat_lat_real)  # constrain x' to look like x
+        self.loss_g_rec = self.mse_criterion(self.feat_rec_fake, self.feat_rec_real) 
+        self.loss_g_lat = self.mse_criterion(self.feat_lat_fake, self.feat_lat_real) 
 
 
         self.loss_g = self.loss_g_rs + self.opt.w_rec  * self.loss_g_rec + self.opt.w_lat * self.loss_g_lat
