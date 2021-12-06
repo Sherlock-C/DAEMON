@@ -7,16 +7,6 @@ class EarlyStopping:
 
     def __init__(self, opt, patience=7, verbose=False, delta=0):
 
-        '''
-
-        :param opt:
-        :param patience (int): How long to wair after last time validation loss improved
-
-        :param verbose: If true, prints the information of validation loss improvement
-
-        :param delta: Minimum change in the monitored quantity to qualify as an improvement
-        '''
-
         self.opt = opt
         self.patience = patience
         self.verbose = verbose
